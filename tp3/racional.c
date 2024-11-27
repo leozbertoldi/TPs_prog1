@@ -47,15 +47,16 @@ int simplifica_r (struct racional *r)
     return (0);
 	
  //se num+ den- ou num- den-, os valores serão acertados
-    if ( ((r->num > 0) && (r->den < 0)) || ((r->num < 0) && (r->den < 0)) )
-    {
-      r->num = (-1) * r->num;
-      r->den = (-1) * r->den;
-    }
-    divisor = mdc(r->num, r->den);
-    r->num = r->num/divisor;
-    r->den = r->den/divisor;
-    return (1);
+  if ( ((r->num > 0) && (r->den < 0)) || ((r->num < 0) && (r->den < 0)) )
+  {
+    r->num = (-1) * r->num;
+    r->den = (-1) * r->den;
+  }
+  divisor = mdc(r->num, r->den);
+  r->num = r->num/divisor;
+  r->den = r->den/divisor;
+
+  return (1);
 }
 
 struct racional *cria_r (long numerador, long denominador)
